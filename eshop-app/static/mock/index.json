@@ -1,0 +1,27 @@
+{
+    "ret": true,
+    "data":{
+        "bannerImg":[
+            {
+                "title":"2021夏季特典",
+                "imgUrl":"static/mock/images/2021_summer_top_banner_l.png"
+            },
+            {
+                "title":"搭档任务 秘密搜查组",
+                "imgUrl":"static/mock/images/switch_bond_l.jpg"
+            },
+            {
+                "title":"马里奥高尔夫 超级冲冲冲",
+                "imgUrl":"static/mock/images/switch_marioGolf_l.jpg"
+            },
+            {
+                "title":"Nintendo Switch OLED version",
+                "imgUrl":"static/mock/images/switch_oled_210706_l_tc.jpg"
+            },
+            {
+                "title":"塞尔达传说：天空之剑HD",
+                "imgUrl":"static/mock/images/switch_zelda_sword_l.jpg"
+            }
+        ]
+    }
+}
