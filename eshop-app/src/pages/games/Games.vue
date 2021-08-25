@@ -25,7 +25,7 @@ export default {
     },
     methods:{
         getGameList(){
-            axios.get('/api/jp.json')
+            axios.get('/api/games.json')
                 .then(this.getGameListSucc)
         },
         getGameListSucc(res){

@@ -12,7 +12,7 @@
                 </div>
                 <div class="aboutThis-content"> 
                     <h3 class="aboutThis-content-title">网站简介：</h3>
-                    <p class="aboutThis-content-desc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这个网站是我出于个人兴趣和练手目的制作的小demo，后端数据是模拟自调用GitHub上别人整理的任天堂的api下载而来的xml文件，主要实现了对模拟数据的展示、分类、以及简单的搜索功能。
+                    <p class="aboutThis-content-desc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这个网站是我出于个人兴趣和练手目的制作的小demo，后端数据是GitHub上别人整理的任天堂的api下载而来的xml文件转换的JSON文件，主要实现了对模拟数据的展示、分类、以及简单的搜索功能。
                     </p>
                     <h3 class="aboutThis-content-title">注意事项：</h3>
                     <ol>
@@ -22,6 +22,8 @@
                         <li class="aboutThis-content-li">dsadsa</li>
                     </ol>
                     <h3 class="aboutThis-content-title">联系方式：</h3>
+                    <p class="aboutThis-content-desc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;QQ邮箱：1206269936@qq.com
+                    </p>
                 </div>
             </div>
         </div>
@@ -67,6 +69,7 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~styles/mixins.styl'
+@import '~styles/variables.styl'
 .home-content
     position absolute
     width 100%
@@ -91,7 +94,7 @@ export default {
                 font-size 1.6em
                 margin 10px 30px
                 padding-left 20px
-                border-bottom 3px solid #E60012
+                border-bottom 3px solid $themeColor
             .aboutThis-content
                 height 323px 
                 margin 15px 30px 

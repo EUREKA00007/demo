@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <home-header></home-header>
+        <home-header :gameList="gameList"></home-header>
         <home-content :bannerImg="bannerImg" :gameList="gameList"></home-content>
         <home-footer></home-footer>
     </div>
@@ -30,7 +30,7 @@ export default {
                 .then(this.getBannerImgsSucc)
         },
         getGameList(){
-            axios.get('/api/jp.json')
+            axios.get('/api/games.json')
                 .then(this.getGameListSucc)
         },
         getBannerImgsSucc(res){

@@ -14,9 +14,9 @@ export default {
 
 <style lang="stylus" scoped>
 .footer
-    position absolute
+    position fixed
     bottom 0
-    width 100%
+    width 1920px
     height 123px
     text-align center
     background #e2e2e2

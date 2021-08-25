@@ -1,16 +1,18 @@
 <template>
-    <div>
+    <div class="gamesPage">
         <div class="games-wrapper">
-            <div class="games">
+            <div class="games" :style="styleObject">
                 <el-card class='gameCard' 
                         v-for="item of gameList.slice((pageInfo.currentPage-1)*pageInfo.pageSize,pageInfo.currentPage*pageInfo.pageSize)" 
                         :key="item.id"
-                        shadow="hover">
+                        shadow="hover"
+                        >
                     <img class="game-img" :src="item.ScreenshotImgURL" :title="item.TitleName_SC || item.TitleName">
                         <a href=""><div class="game-title" :title="item.TitleName_SC || item.TitleName">{{item.TitleName_SC || item.TitleName}}</div></a>
                     <div class="game-price">{{item.Price.hk || item.Price.jp}}</div>
                 </el-card>
             </div>
+            
         </div>
         <div class="block">
             <el-pagination
@@ -18,7 +20,8 @@
             @current-change="handleCurrentChange"
             :current-page="pageInfo.currentPage"
             :page-size="pageInfo.pageSize"
-            layout="total, prev, pager, next, jumper"
+            :page-sizes="[8,16,24]"
+            layout="total,sizes, prev, pager, next, jumper"
             :total="gameList.length">
             </el-pagination>
         </div>
@@ -47,12 +50,41 @@ export default {
 
         }
       };
+    },
+    computed:{
+        styleObject(){
+            let paddingValue = 0
+            if(this.pageInfo.pageSize === 8){
+                paddingValue = 250
+            }else if(this.pageInfo.pageSize === 16){
+                paddingValue = 150
+            }else if(this.pageInfo.pageSize === 24){
+                paddingValue = 50
+            }
+            return{
+                paddingTop: paddingValue + "px",
+                paddingBottom: paddingValue + "px"
+            }
+        }
     }
 }
 </script>
 
 <style lang="stylus" scoped>
 @import '~styles/mixins.styl'
+@import '~styles/variables.styl'
+.block >>> .el-input__inner:focus,.block >>> .el-input__inner:hover
+    border 1px solid $themeColor
+
+.block >>> .el-pager
+    li.active,li:hover
+        color $themeColor
+        cursor default
+.block >>> .el-icon-arrow-right:hover,.block >>> .el-icon-arrow-left:hover
+    color $themeColor
+.block >>> .btn-prev:hover,.block >>> .btn-next:hover
+    color $themeColor
+
 .games
     position absolute
     top 62px
@@ -79,11 +111,11 @@ export default {
             color #868383
             margin-top 5px
             font-size 0.8em
+
+
 .block
-    position absolute
-    top 738px
-    z-index -1
+    position fixed
+    bottom 150px
     width 100%
-    .el-pagination
-        text-align center
+    text-align center   
 </style>
