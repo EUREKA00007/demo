@@ -3,9 +3,9 @@
         <div class="result-desc">搜索‘{{this.$route.query.keywords}}’，找到 <span>{{songCount}}</span> 首单曲</div>
         <div class="result-item" v-for="item of songList" :key="item.id">
             <i class="el-icon-plus" @click="handleSongclick(item)"></i>
-            <div class="title"><a href="">{{item.name}}</a></div>
-            <div class="artist"><a href="">{{item.artists[0].name}}</a></div>
-            <div class="album"><a href="">{{item.album.name}}</a></div>
+            <div class="title"><a :href="'/song/' + item.id">{{item.name}}</a></div>
+            <div class="artist"><a :href="'/artist/' + item.artists[0].id">{{item.artists[0].name}}</a></div>
+            <div class="album"><a :href="'/album/' + item.album.id">{{item.album.name}}</a></div>
             <div class="duration">{{parseInt((item.duration%3600000)/60000) + ':' + parseInt((item.duration%60000)/1000)}}</div>
         </div>
         <div class="search-pagination">

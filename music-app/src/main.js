@@ -12,6 +12,7 @@ Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(VueAplayer)
 
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

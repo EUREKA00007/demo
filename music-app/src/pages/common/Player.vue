@@ -29,7 +29,13 @@ export default {
     mounted (){
         Bus.$on('addSong',(music)=>{
             this.musics.push(music)
+            this.$message({
+                showClose: true,
+                message: '已添加至播放列表！',
+                type: 'success'
+            })
         })
+
     }
 }
 </script>

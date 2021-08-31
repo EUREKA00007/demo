@@ -10,13 +10,13 @@
                     </div>
                 </div>
                 <div class="hot-item" v-for="(item,index) of hotList.slice(0,8)" :key="index">
-                    <img :src="item.picUrl" alt="">
+                    <a :href="'/playlist/' + item.id"><img :src="item.picUrl" alt=""></a>
                     <div class="img-bottom">
                         <i class="el-icon-headset playCount-icon"></i>
                         <span class="playCount">{{(item.playCount/10000).toFixed(1)}}万</span>
                         <i class="el-icon-video-play play"></i>
                     </div>
-                    <a href=""><span>{{item.name}}</span></a>
+                    <a :href="'/playlist/' + item.id"><span>{{item.name}}</span></a>
                 </div>
             </div>
             <div class="newAlbum">
@@ -29,9 +29,9 @@
                 </div>
                 <div class="newAlbum-item-wrapper">
                     <div class="newAlbum-item" v-for="(item,index) of newAlbumList.slice(0,5)" :key="index">
-                        <img :src="item.blurPicUrl" alt="">
-                        <p class="album-name">{{item.name}}</p>
-                        <p class="artist-name">{{item.artist.name}}</p>
+                        <a :href="'/album/' + item.id"><img :src="item.blurPicUrl" alt=""></a>
+                        <a :href="'/album/' + item.id"><p class="album-name">{{item.name}}</p></a>
+                        <a :href="'/artist/' + item.artist.id"><p class="artist-name">{{item.artist.name}}</p></a>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@
                         </div>
                         <div class="list">
                             <ul v-for="item,index of item.tracks.slice(0,10)" :key="index">
-                                <li class="list-item">{{item.name}}</li>
+                               <a :href="'/song/' + item.id"><li class="list-item">{{item.name}}</li></a>
                             </ul>
                         </div>
                         <div class="more">
@@ -69,7 +69,7 @@
                     <p>登录后可以享受无限收藏的乐趣，并</p>
                     <p>且无限同步到手机</p>
                 </div>
-                <el-button type="primary" class="login">登录</el-button>
+                <el-button type="primary" class="login" @click="login">登录</el-button>
             </div>
             <div class="artists">
                 <div class="artists-title">
@@ -80,10 +80,10 @@
                     </div>
                 </div>
                 <div class="artist-item" v-for="item,index of artistList" :key="index">
-                    <img :src="item.img1v1Url" alt="">
+                    <a :href="'/artist/' + item.id"><img :src="item.img1v1Url" alt=""></a>
                     <div class="artist-names">
-                        <div class="name">{{item.name}}</div>
-                        <div class="alia">{{item.alias[0]}}</div>
+                        <div class="name"><a :href="'/artist/' + item.id">{{item.name}}</a></div>
+                        <div class="alia"><a :href="'/artist/' + item.id">{{item.alias[0]}}</a></div>
                     </div>
                 </div>
             </div>
@@ -92,10 +92,10 @@
                     <span class="fst">热门电台</span>
                 </div>
                 <div class="radio-item" v-for="item,index of djRadios.slice(0,10)" :key="index">
-                    <img :src="item.picUrl" alt="">
+                    <a :href="'/djradio/' + item.id"><img :src="item.picUrl" alt=""></a>
                     <div class="radio-desc">
-                        <div class="name">{{item.name}}</div>
-                        <div class="category">{{item.category}}</div>
+                        <div class="name"><a :href="'/djradio/' + item.id">{{item.name}}</a></div>
+                        <div class="category"><a :href="'/djradio/' + item.id">{{item.category}}</a></div>
                     </div>
                 </div>
             </div>
@@ -119,7 +119,9 @@ export default {
         }
     },
     methods:{
-
+        login () {
+            this.$router.push('/login')
+        }
     }
 }
 </script>
@@ -246,7 +248,13 @@ export default {
                         ellipsis()
                         color #666
                         font-size 0.6em
-                        line-height 1.8em  
+                        line-height 1.8em 
+                    a 
+                        color #000
+                    a:hover
+                        color #000
+                        text-decoration underline
+
                     img
                         width 100px
                         height 100px 
@@ -298,6 +306,11 @@ export default {
                             padding-left 10px
                     .list
                         text-align left
+                        a
+                            color #000
+                        a:hover
+                            color #000
+                            text-decoration underline
                         .list-item
                             font-size 0.8em
                             line-height 32px
@@ -329,7 +342,7 @@ export default {
             margin 0 0 20px 0
             border-top 1px solid #ccc
             border-bottom 1px solid #ccc
-            background:linear-gradient(to bottom,#fff,#e2e2e2);
+            background:linear-gradient(to bottom,#fff,#e2e2e2)
             .tips
                 position relative
                 top 30px
@@ -378,11 +391,17 @@ export default {
                     float left
                     width 190px
                     height 80px
+                    a
+                        color #000
+                    a:hover
+                        color #000
+                        text-decoration underline
                     .name
                         width 170px
                         height 40px
                         ellipsis()
                         text-align left
+                        font-size 0.9em
                         padding-left 10px
                         line-height 40px
                     .alia
@@ -419,6 +438,11 @@ export default {
                     float left
                     width 190px
                     height 50px
+                    a
+                        color #000
+                    a:hover
+                        color #000
+                        text-decoration underline
                     .name
                         width 170px
                         height 25px

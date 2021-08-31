@@ -17,7 +17,15 @@ module.exports = {
         pathRewrite:{
           '^/api': ''
         }
-      }
+      },
+      '/api/song':{
+        target:'http://localhost:3000',
+        changOrigin: true,
+        pathRewrite:{
+          '^/api/song': '/song'
+        }
+      },
+
     },
 
     // Various Dev Server settings

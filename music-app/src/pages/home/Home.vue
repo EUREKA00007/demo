@@ -14,6 +14,7 @@
                             >
             </home-content>
         </home-main>
+        <backtop></backtop>
         <player></player>
         <home-footer></home-footer>
     </div>
@@ -25,6 +26,7 @@ import SearchTool from '../common/SearchTool.vue'
 import HomeHeader from '../common/Header.vue'
 import HomeFooter from '../common/Footer.vue'
 import Player from '../common/Player.vue'
+import Backtop from '../common/Backtop.vue'
 import HomeMain from '../common/Main.vue'
 import HomeBanner from './components/Banner.vue'
 import HomeContent from './components/Content.vue'
@@ -38,7 +40,8 @@ export default {
         HomeBanner,
         HomeContent,
         HomeFooter,
-        Player
+        Player,
+        Backtop
         
     },
     data () {

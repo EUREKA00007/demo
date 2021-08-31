@@ -5,6 +5,7 @@
         <search-main class="search-main">
             <search-content :songList="songList" :songCount="songCount" @changePage="getNextSongList"></search-content>
         </search-main>
+        <backtop></backtop>
         <player></player>
         <search-footer></search-footer>
     </div>
@@ -16,6 +17,7 @@ import SearchTool from '../common/SearchTool.vue'
 import SearchHeader from '../common/Header.vue'
 import SearchContent from './components/Content.vue'
 import SearchFooter from '../common/Footer.vue'
+import Backtop from '../common/Backtop.vue'
 import Player from '../common/Player.vue'
 import SearchMain from '../common/Main.vue'
 export default {
@@ -26,6 +28,7 @@ export default {
         SearchContent,
         SearchFooter,
         Player,
+        Backtop,
         SearchMain
     },
     data () {
@@ -57,10 +60,9 @@ export default {
                 this.songList = res.result.songs
                 this.songCount = res.result.songCount
             }
-            
         },
-        getNextSongList (offset) {
-            this.offset = (offset - 1)*20
+        getNextSongList (pageSize) {
+            this.offset = (pageSize - 1)*20
             this.getSongList()
         }
     },

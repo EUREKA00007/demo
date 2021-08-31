@@ -18,7 +18,7 @@
                             创作者中心
                             </div>
                         </a>
-                        <a class="header-top-login" href="">登录</a>
+                        <a class="header-top-login" href="/login">登录</a>
                     </ul>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                         <a href=""><li class="fst">推荐</li></a>
                         <a href=""><li>排行榜</li></a>
                         <a href=""><li>歌单</li></a>
-                        <a href=""><li>主播电台</li></a>
+                        <a href=""><li>电台</li></a>
                         <a href=""><li>歌手</li></a>
                         <a href=""><li>新碟上架</li></a>
                     </ul>
@@ -107,6 +107,7 @@ export default {
                 color #ccc
             a.header-top-login:hover
                 color #fff
+                text-decoration underline
             
     .header-bottom
         background #41B883
